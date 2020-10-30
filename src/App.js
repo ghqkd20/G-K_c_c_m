@@ -1,6 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-
+/*
+import '../CodeMirror/lib/codemirror.css'
+import '../CodeMirror/theme/darcula.css'
+import '../CodeMirror/lib/codemirror.js'
+import '../CodeMirror/mode/clike/clike.js'
+import '../CodeMirror/mode/python/python.js'
+*/
 function App() {
   return (
     <div className="App">
@@ -15,8 +21,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn hello
         </a>
+        <div>
+          hello
+        </div>
       </header>
     </div>
   );
