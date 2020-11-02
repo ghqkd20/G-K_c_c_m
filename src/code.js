@@ -9,7 +9,6 @@ import {Link,Route,BrowserRouter,Switch as Router} from "react-router-dom"
 import TableBody from './table'
 import Switch from 'react-bootstrap/esm/Switch';
 import { Component } from 'react';
-import Greeting from './index';
 /*
 const options = {
   onRowClick: function(){
@@ -32,23 +31,6 @@ const options = {
     }
 };
 */
-class app2 extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      click : 'no'
-    }
-  }
-    render(){
-      const click = this.state.click;
-      return(
-        <div>
-          click
-        </div>
-      )
-    }
-  }
-
 class App extends Component { 
   constructor(props){
     super(props);
@@ -70,8 +52,14 @@ class App extends Component {
  
 
   render(){
-  
+    function myclick(){
+      alert(
+        this.props.state.mode)
+    }
 
+    const options = {
+      onRowClick: myclick
+    }
     alert(this.state.mode);
     if(this.state.mode == "not"){
       return(
@@ -105,4 +93,4 @@ class App extends Component {
 }
 
 
-export {app2,App};
+export default App;
