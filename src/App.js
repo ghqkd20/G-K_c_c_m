@@ -1,15 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+
+import ReactDOM from 'react-dom';
 import { render } from '@testing-library/react';
 import * as ReactBootStrap from "react-bootstrap";
 import {BootstrapTable,TableHeaderColumn} from "react-bootstrap-table"
 import paginationFactory from "react-bootstrap-table2-paginator"
 import {Modal,Button} from "react-bootstrap"
 import {Link,Route,BrowserRouter,Switch as Router} from "react-router-dom"
-import TableBody from './table'
+import TableBody from './code'
 import Switch from 'react-bootstrap/esm/Switch';
 import { Component } from 'react';
 import Greeting from './index';
+
 /*
 const options = {
   onRowClick: function(){
@@ -31,7 +34,7 @@ const options = {
       ) 
     }
 };
-*/
+
 class app2 extends Component{
   constructor(props){
     super(props);
@@ -48,31 +51,25 @@ class app2 extends Component{
       )
     }
   }
-
+*/
 class App extends Component { 
   constructor(props){
     super(props);
     this.state = {
       mode : 'table',
     }
-  }
-/*
-   handleclick(){
-     alert('helllo');
-    const {mode} = this.state;
-    this.setState({
-      mode : 'not'
-    });
-    alert(mode);
-    return null;
-  }
-  */  
+  }  
  
 
   render(){
-  
+    const options = {
+      onRowClick : function te() {
+        ReactDOM.render(
+          <TableBody/>,
+        document.getElementById('root'));
+      }
+    }
 
-    alert(this.state.mode);
     if(this.state.mode == "not"){
       return(
         <tbody>
@@ -105,4 +102,4 @@ class App extends Component {
 }
 
 
-export {app2,App};
+export default App;

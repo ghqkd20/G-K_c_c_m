@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {app2,App} from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import TableBody from './table.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Greeting(){
-  alert(app2);
-
-}
 
 ReactDOM.render(
     <App/>,
