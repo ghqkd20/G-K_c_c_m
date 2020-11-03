@@ -12,7 +12,7 @@ import TableBody from './code'
 import Switch from 'react-bootstrap/esm/Switch';
 import { Component } from 'react';
 import Greeting from './index';
-
+import CodeMirror from './codemir'
 /*
 const options = {
   onRowClick: function(){
@@ -56,7 +56,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      mode : 'table',
+      modee : 'table',
     }
   }  
  
@@ -65,21 +65,11 @@ class App extends Component {
     const options = {
       onRowClick : function te() {
         ReactDOM.render(
-          <TableBody/>,
+          <CodeMirror/>,
         document.getElementById('root'));
       }
     }
-
-    if(this.state.mode == "not"){
-      return(
-        <tbody>
-        <tr>
-          hi
-        </tr>
-        </tbody>
-      )
-    }
-    else{
+    
       const problem = [
         {Number :"1", Name : "kruskal", Professor : "jh" ,Try: "1"},
         {Number :"2", Name : "prims", Professor : "jh" ,Try: "2"},
@@ -88,6 +78,7 @@ class App extends Component {
         {Number :"5", Name : "traveling sales", Professor : "jh" ,Try: "2"}
       ]
       return (
+        
       <BootstrapTable data = {problem} striped = {true} hover={true} options = {options} >
         <TableHeaderColumn dataField='Number'isKey>Number</TableHeaderColumn>
         <TableHeaderColumn dataField='Name' >Name</TableHeaderColumn>
@@ -99,7 +90,7 @@ class App extends Component {
       )
       }
   }
-}
+
 
 
 export default App;
