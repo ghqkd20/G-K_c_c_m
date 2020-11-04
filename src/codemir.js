@@ -22,7 +22,7 @@ const code = 'const a = 0;';
 //https://uiwjs.github.io/react-codemirror/
 
 import {UnControlled as CodeMirror} from 'react-codemirror2'
-
+import { Component } from 'react';
 require('codemirror/mode/clike/clike');
 require('codemirror/mode/cmake/cmake');
 require('codemirror/mode/xml/xml');
