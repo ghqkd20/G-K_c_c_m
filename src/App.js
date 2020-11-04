@@ -5,14 +5,10 @@ import ReactDOM from 'react-dom';
 import { render } from '@testing-library/react';
 import * as ReactBootStrap from "react-bootstrap";
 import {BootstrapTable,TableHeaderColumn} from "react-bootstrap-table"
-import paginationFactory from "react-bootstrap-table2-paginator"
 import {Modal,Button} from "react-bootstrap"
-import {Link,Route,BrowserRouter,Switch as Router} from "react-router-dom"
-import TableBody from './code'
-import Switch from 'react-bootstrap/esm/Switch';
 import { Component } from 'react';
-import Greeting from './index';
-import CodeMirror from './codemir'
+import Code from './codemir'
+import TableBody from './code';
 /*
 const options = {
   onRowClick: function(){
@@ -65,7 +61,10 @@ class App extends Component {
     const options = {
       onRowClick : function te() {
         ReactDOM.render(
-          <CodeMirror/>,
+          <TableBody/>,document.getElementById('root2')
+        )
+        ReactDOM.render(
+          <Code/>,
         document.getElementById('root'));
       }
     }

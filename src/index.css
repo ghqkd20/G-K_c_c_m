@@ -1,3 +1,11 @@
+
+@import '/node_modules/codemirror/lib/codemirror.css';
+@import '/node_modules/codemirror/theme/dracula.css';
+
+font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +15,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+.code {
+  font-style: italic;
+  font-size: small;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
