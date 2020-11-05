@@ -71,8 +71,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 #### 참여인원
 * 허정훈, gjwjdgnsrnlg@naver.com  , 
-* 정경훈, rudgns8285@naver.com    ,
-* 유태준, zxc8283@daum.net        ,
+* 정경훈, rudgns8285@naver.com    , 
+* 유태준, zxc8283@daum.net        , 
 
 #### 참고
 
