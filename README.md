@@ -8,6 +8,8 @@ PNU_OpenSW_CCM_Site
 - react
 - react-bootstrap
 - postgres 12.4
+- yarn
+- docker 
 ## 설치방법
 
 - Frontend :
