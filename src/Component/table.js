@@ -6,6 +6,8 @@ import * as ReactBootStrap from "react-bootstrap";
 import {BootstrapTable,TableHeaderColumn} from "react-bootstrap-table"
 import {Modal,Button} from "react-bootstrap"
 import {Component } from 'react';
+import store from '../store';
+
 
 class Table extends Component { 
 //   constructor(props){
@@ -21,12 +23,11 @@ class Table extends Component {
 //       }
 //   }  
 // }
-
   render(){
     const options = {
-      onRowClick : function te(e) {
-        debugger;
-        this.props.onRowChange(e.Number);
+      onRowClick : function(e) {
+       // debugger;
+        store.dispatch({type:'CODE',mode:'CODE',num:parseInt(e.Number),main_title:'Problem State'})
     }.bind(this)
   }
       const problem = [
