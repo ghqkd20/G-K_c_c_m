@@ -5,6 +5,8 @@ import { Component } from 'react';
 import Select from './select';
 import store from '../store';
 import '../index.css';
+import MDEditor from './mdEditor';
+
 require('codemirror/addon/hint/show-hint.css');
 require('codemirror/mode/clike/clike');
 require('codemirror/mode/cmake/cmake');
@@ -54,6 +56,7 @@ class Code extends Component{
 			onChange={(editor, data, value) => {
 			}}
 			/>
+         <MDEditor/>
 			</div>
 		)
 		}
