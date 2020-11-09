@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# 프로젝트 이름
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PNU_OpenSW_CCM_Site
 
-## Available Scripts
+## 요구사항
 
-In the project directory, you can run:
+- Node.js >= 14
+- react
+- react-bootstrap
+- postgres 12.4
+- yarn
+- docker 
+## 설치방법
 
-### `yarn start`
+- Frontend :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. git clone -b code적용 [https://github.com/ghqkd20/G-K_c_c_m.git](https://github.com/ghqkd20/G-K_c_c_m.git)
+2. cd G-K_c_c_m
+3. npm install
+4. npm start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Backend :
 
-### `yarn test`
+1. git clone https://github.com/rudgns9334/ccm_server-DB.git
+2. cd ccm_server_DB
+3. yarn
+4. copy .env env
+5. yarn db:create
+6. yarn db:migrate
+7. yarn db:seed
+8. yarn start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+DataBase :
 
-### `yarn build`
+```
+docker pull postgres
+$ docker run -d -p 5432:5432 --name pgsql -e POSTGRES_PASSWORD=postgres postgres
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **테스트 환경**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+http:// localhost:3000/
+http:// localhost:5000
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 참여인원
 
-### `yarn eject`
+- 허정훈, [gjwjdgnsrnlg@naver.com](mailto:gjwjdgnsrnlg@naver.com) ,
+- 정경훈, [rudgns8285@naver.com](mailto:rudgns8285@naver.com) ,
+- 유태준, [zxc8283@daum.net](mailto:zxc8283@daum.net) ,
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 참고
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ - Create React App([https://create-react-app.dev/docs/getting-started](https://create-react-app.dev/docs/getting-started/))
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ - React-Bootstrap ([https://react-bootstrap.github.io/](https://react-bootstrap.github.io/))
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Sequelize Manual([https://sequelize.org/master/manual/models-usage.html](https://sequelize.org/master/manual/models-usage.html))
 
-## Learn More
+## 라이센스
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- CodeMirror([https://codemirror.net/](https://codemirror.net/)) : MIT
+- react-markdown([https://www.npmjs.com/package/react-markdown](https://www.npmjs.com/package/react-markdown)) : MIT
