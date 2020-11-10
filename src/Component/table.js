@@ -6,7 +6,13 @@ import * as ReactBootStrap from "react-bootstrap";
 import {BootstrapTable,TableHeaderColumn} from "react-bootstrap-table"
 import {Modal,Button} from "react-bootstrap"
 import {Component } from 'react';
+<<<<<<< HEAD
 import Problem from './Problems';
+=======
+import store from '../store';
+
+
+>>>>>>> 400953496cafa521bac530630263ef3a710bd290
 class Table extends Component { 
 //   constructor(props){
 //     super(props);
@@ -21,6 +27,7 @@ class Table extends Component {
 //       }
 //   }  
 // }
+<<<<<<< HEAD
   state = {
     problems: "",
     completed: 0
@@ -44,11 +51,13 @@ class Table extends Component {
     const { completed } = this.state;
     this.setState({ completed: completed >= 100 ? 0 : completed + 1});
   }
+=======
+>>>>>>> 400953496cafa521bac530630263ef3a710bd290
   render(){
     const options = {
-      onRowClick : function te(e) {
-        debugger;
-        this.props.onRowChange(e.Number);
+      onRowClick : function(e) {
+       // debugger;
+        store.dispatch({type:'CODE',mode:'CODE',num:parseInt(e.Number),main_title:'Problem State'})
     }.bind(this)
   }
   

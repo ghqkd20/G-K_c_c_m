@@ -3,7 +3,8 @@ import {UnControlled as CodeMirror} from 'react-codemirror2'
 import React from 'react';
 import { Component } from 'react';
 import Select from './select';
-
+import store from '../store';
+import '../index.css';
 require('codemirror/addon/hint/show-hint.css');
 require('codemirror/mode/clike/clike');
 require('codemirror/mode/cmake/cmake');
@@ -17,13 +18,14 @@ require('codemirror/addon/edit/matchbrackets');
 
 
 class Code extends Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			mode : 'dracula'
-		}
-	}
 	
+   state = {theme:store.getState().theme}
+	constructor(props){
+      super(props);
+      store.subscribe(function(){
+         this.setState({theme:store.getState().theme});
+      }.bind(this))
+   }
 	render(){
 
 	return (
@@ -34,7 +36,7 @@ class Code extends Component{
 			value={'<h1>I react-codemirror2</h1>'}
 			options={{lineNumbers: true,
 			mode: 'javascript',
-			theme : this.state.mode,
+			theme : this.state.theme,
 			gutters:["CodeMirror-lint-markers"],
 			lint: true,
 			smartIndent : true,   // maybe set line start point

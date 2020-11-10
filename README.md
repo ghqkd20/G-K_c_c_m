@@ -22,12 +22,17 @@ PNU_OpenSW_CCM_Site
 - Backend :
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. 깃다운
 2. cd
 =======
 1. git clone https://github.com/rudgns9334/ccm_server-DB.git
 2. cd ccm_server_DB
 >>>>>>> f91d6e549c7a2cd78e29512e2f4fe0f06ad14ab6
+=======
+1. git clone https://github.com/rudgns9334/ccm_server-DB.git
+2. cd ccm_server_DB
+>>>>>>> 400953496cafa521bac530630263ef3a710bd290
 3. yarn
 4. copy .env env
 5. yarn db:create
