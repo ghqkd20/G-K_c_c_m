@@ -1,25 +1,3 @@
-/*
-import 'codemirror/addon/display/autorefresh';
-import 'codemirror/addon/comment/comment';
-import 'codemirror/addon/edit/matchbrackets';
-import CodeMirror from '@uiw/react-codemirror';
-import 'codemirror/keymap/sublime';
-import 'codemirror/theme/monokai.css';
-
-const code = 'const a = 0;';
-
-<CodeMirror
-  value={code}
-  options={{
-    theme: 'monokai',
-    tabSize : 10,
-    keyMap: 'sublime',
-    theme : 'monokai',
-    mode : 'cmake'
-  }}
-/>
-*/
-//https://uiwjs.github.io/react-codemirror/
 
 import {UnControlled as CodeMirror} from 'react-codemirror2'
 import React from 'react';
@@ -51,11 +29,6 @@ class Code extends Component{
 	return (
 		
 		<div className ="Code">
-		<Select onChangePage={function(e){
-			this.setState({mode:e})
-		}.bind(this)}>
-
-		</Select>
 		<CodeMirror
 			
 			value={'<h1>I react-codemirror2</h1>'}
