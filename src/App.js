@@ -7,6 +7,10 @@ import Code from './Component/codewrite'
 import Back from './Component/back';
 import Probsub from './Component/probsub';
 import Select from './Component/select';
+import Mbtn from './Component/mbtn';
+import MDEditor from './Component/mdEditor';
+import Back2 from './Component/back2';
+import Submit from './Component/submit';
 import store from './store';
 import './index.css';
 
@@ -31,17 +35,31 @@ class App extends Component {
   render(){
     var two_mode = null;
       if(this.state.mode === 'TABLE'){
-          two_mode = <Table></Table>   
+          two_mode = <div>
+          <Title></Title>
+          <Table></Table>  
+          </div>
       }
       else if(this.state.mode ==='CODE'){
-        two_mode =<div><Probsub></Probsub>
-        <Select></Select>
+        two_mode =<div>
         <Back></Back>
+        <Title></Title>
+        <Probsub></Probsub>
+        <Mbtn></Mbtn>
+        <Select></Select>
         <Code></Code></div>
+      }
+      else if(this.state.mode ==='MENTOR'){
+        two_mode = <div>
+          <Back2></Back2>
+          <Title></Title>
+          <MDEditor></MDEditor>
+          <Submit></Submit>
+
+        </div>
       }
       return (
         <div>
-          <Title></Title>
           {two_mode}
           </div> 
       )

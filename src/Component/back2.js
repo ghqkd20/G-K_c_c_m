@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import store from '../store';
-class Back extends Component{
+class Back2 extends Component{
 	state = {mode : 'table'}
 	render(){
 		return (
 			<button className = "back" onClick={function(){
-				store.dispatch({type:'BACK',mode:'table'})
+				store.dispatch({type:'BACK2',submit:'YES'})
 			}.bind(this)}>
 				돌아가기
 			</button>
@@ -14,4 +14,4 @@ class Back extends Component{
 } 
 
 
-export default Back
+export default Back2
