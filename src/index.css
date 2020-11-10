@@ -36,10 +36,31 @@ body {
    margin-left: 20px;
 }
 .back{
-  margin-left: 1250px;
-  padding-bottom: 20px;border: 1px solid skyblue; background-color: rgba(0,0,0,0); color: skyblue; padding: 5px;
+  margin-left: 1350px;
+  border: 1px solid rgb(31, 169, 224); background-color: rgba(0,0,0,0); 
+  color: rgb(45, 163, 209); padding: 5px;
   border-top-left-radius: 10px; border-bottom-left-radius: 10px;
   border-top-right-radius: 10px; border-bottom-right-radius: 10px;
   font-size: large;
   font-family: monospace;
+}
+.back2{
+  margin-left: 1350px;
+  border: 1px solid rgb(31, 169, 224); background-color: rgba(0,0,0,0); 
+  color: rgb(45, 163, 209); padding: 5px;
+  padding: 10px;
+  border-top-left-radius: 10px; border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px; border-bottom-right-radius: 10px;
+  font-size: large;
+  font-family: monospace;
+}
+
+.editor{
+  height: 450px;
+  overflow: auto;
+}
+.ment{
+  padding : 5px 0px 0px 10px;
+  border-radius: 4px;
+  border: 3px solid #555;
 }

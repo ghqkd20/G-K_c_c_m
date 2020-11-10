@@ -27,7 +27,8 @@ class Table extends Component {
     const options = {
       onRowClick : function(e) {
        // debugger;
-        store.dispatch({type:'CODE',mode:'CODE',num:parseInt(e.Number),main_title:'Problem State'})
+        store.dispatch({type:'CODE',mode:'CODE',num:parseInt(e.Number),main_title:'Problem State'
+      ,back:'back'})
     }.bind(this)
   }
       const problem = [

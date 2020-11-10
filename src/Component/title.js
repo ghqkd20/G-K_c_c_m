@@ -1,21 +1,27 @@
 import React, {Component} from 'react'
+
 import store from '../store';
 
 class Title extends Component{
 	state = {className:store.getState().title_css,
-			title:store.getState().main_title}
+	title:store.getState().main_title,
+	back:store.getState().back}
 	constructor(props){
 		super(props);
 		store.subscribe(function(){
-			this.setState({title:store.getState().main_title})
-		}.bind(this))
-	}
-	render(){
+		this.setState({title:store.getState().main_title,
+		back:store.getState().back})
+	}.bind(this))
+
+}
+
+render(){
+
 	return (
+		<div className = "in" >
 		<h2 className={this.state.className} >{this.state.title}</h2>
-  		)
-		}
-	}
- 
- export default Title;
- 
+		</div>
+	)
+}
+}
+export default Title;

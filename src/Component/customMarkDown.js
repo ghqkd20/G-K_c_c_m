@@ -35,13 +35,13 @@ class MathFormatEdit extends Component {
 
 
   addMathForm = () => {
-    var inlineMath = ReactKaTeX.InlineMath;
+    //var inlineMath = ReactKaTeX.InlineMath;
     const { editorState, onChange } = this.props;
     
     const contentState = Modifier.replaceText(
       editorState.getCurrentContent(),
       editorState.getSelection(),
-      <InlineMath math="\\int_0^\\infty x^2 dx"/>,
+     // <InlineMath math="\\int_0^\\infty x^2 dx"/>,
       editorState.getCurrentInlineStyle(),
     );
     onChange(EditorState.push(editorState, contentState, 'insert-characters'));

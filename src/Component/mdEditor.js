@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {EditorState} from "draft-js";
 import {Editor} from "react-draft-wysiwyg"
-import './myMarkDown.css'
-import {MathFormatEdit} from './customMarkDown'
+//import './myMarkDown.css'
+//import {MathFormatEdit} from './customMarkDown'
 
 
 function uploadImageCallBack(file) {
@@ -46,11 +46,14 @@ class EditorContainer extends Component{
 
   render(){
     const { editorState } = this.state;
-    return <div className='editor' >
+    return (
+    <div className='editor' >
+      <input type="text" id = 'ment' className="ment" label = "글 제목 " placeholder="제목을 입력해 주세요"/>
+      
       <Editor
         editorState={editorState}
         onEditorStateChange={this.onEditorStateChange}
-        toolbarCustomButtons={[<MathFormatEdit />]}    
+       // toolbarCustomButtons={[<MathFormatEdit />]}    
         toolbar={{
           inline: { inDropdown: false },
           list: { inDropdown: true },
@@ -61,6 +64,7 @@ class EditorContainer extends Component{
         }}
       />
     </div>
+    )
   }
 }
 
