@@ -11,6 +11,7 @@ import Mbtn from './Component/mbtn';
 import MDEditor from './Component/mdEditor';
 import Back2 from './Component/back2';
 import Submit from './Component/submit';
+import Mentolist from './Component/mentolist';
 import store from './store';
 import './index.css';
 
@@ -47,7 +48,9 @@ class App extends Component {
         <Probsub></Probsub>
         <Mbtn></Mbtn>
         <Select></Select>
-        <Code></Code></div>
+        <Code></Code>
+        <Mentolist/>
+        </div>
       }
       else if(this.state.mode ==='MENTOR'){
         two_mode = <div>

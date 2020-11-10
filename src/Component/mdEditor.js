@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {EditorState} from "draft-js";
-import {Editor} from "react-draft-wysiwyg"
+import {Editor} from "react-draft-wysiwyg";
+import Axios, { post } from 'axios';
 //import './myMarkDown.css'
 //import {MathFormatEdit} from './customMarkDown'
 
@@ -32,6 +33,8 @@ class EditorContainer extends Component{
     super(props);
     this.state = {
       editorState: EditorState.createEmpty(),
+      number:'',
+      name:'',
     };
   }
 
@@ -42,13 +45,51 @@ class EditorContainer extends Component{
     this.setState({
       editorState,
     });
+    console.log(editorState.getCurrentContent());
   };
+
+  handleFormSubmit = (e) => {
+    e.preventDefault()
+    console.log('plz');
+    Axios({
+        method:'post',
+        url:'/mentorings',
+        data: {
+            number : this.state.number,
+            name : this.state.name,
+            content : this.state.editorState,
+        }
+      })
+    //this.addProblem()
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    
+    this.setState({
+        number: '',
+        name: '',
+        content: '',
+    })
+    window.location.reload();
+}
+
+handleValueChange = (e) => {
+    let nextState = {};
+    nextState[e.target.name] = e.target.value;
+    this.setState(nextState);
+}
 
   render(){
     const { editorState } = this.state;
     return (
-    <div className='editor' >
-      <input type="text" id = 'ment' className="ment" label = "글 제목 " placeholder="제목을 입력해 주세요"/>
+      <form onSubmit={this.handleFormSubmit}>
+      <div className='editor' >
+      
+      <input type="text" id = 'name' className="ment" label = "글 제목 " placeholder="제목을 입력해 주세요" 
+      value={this.state.name} onChange={this.handleValueChange}/>
       
       <Editor
         editorState={editorState}
@@ -63,7 +104,10 @@ class EditorContainer extends Component{
           image: { uploadCallback: uploadImageCallBack, alt: { present: true, mandatory: true } },
         }}
       />
+      
     </div>
+    <button type = "submit">제출하기</button>
+    </form>
     )
   }
 }

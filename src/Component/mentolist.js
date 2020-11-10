@@ -12,36 +12,24 @@ import store from '../store';
 
 
 
-class Table extends Component { 
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//       mode : 'table',
-//       title: {
-//         main : 'Problem list',
-//         css : 'problist'
-//       },
-//       code : {
-//         mode : 'dracular'
-//       }
-//   }  
-// }
+class Mentolist extends Component { 
 
   state = {
-    problems: [],
-    completed: 0
+    mentolist: [],
+    completed: 0,
+    pro_number:store.getState().num
   }
 
   componentDidMount() {
     // 프록시로 등록한 서버주소가 생략됨
     this.timer = setInterval(this.progress, 20);
     this.callApi()
-      .then(res => this.setState({problems: res}))
+      .then(res => this.setState({mentolist: res}))
       .catch(err => console.log(err));
   }
 
   callApi = async () => {
-    const response = await fetch('/problems');
+    const response = await fetch('/mentorings');
     const body = await response.json();
     return body;
   }
@@ -55,7 +43,7 @@ class Table extends Component {
     const options = {
       onRowClick : function(e) {
        // debugger;
-       const test = this.state.problems.filter(problem => problem.number === e.number);
+       const test = this.state.mentolist.filter(mento => mento.number === e.number);
        console.log(test[0].content);
         store.dispatch({type:'CODE',mode:'CODE',num:parseInt(e.number),main_title:test[0].name
       ,back:'back', content:test[0].content})
@@ -63,20 +51,20 @@ class Table extends Component {
   }
   
       return (
-        <div className= "Table">
-      <BootstrapTable data = {this.state.problems ? this.state.problems.map(c => {
-            return(
-                {number: c.number,
-                 name: c.name,
-                 professor: c.professor,
-                 try: c.try
+        <div className= "Mentolist">
+      <BootstrapTable data = {this.state.mentolist ? this.state.mentolist.map(c => {
+          return( 
+                {
+                id: c.id,
+                number: c.number,
+                name: c.name,
               }
               );
-            }) :""} striped = {true} hover={true} options = {options} >
-        <TableHeaderColumn dataField='number'isKey>Number</TableHeaderColumn>
+            }).filter(list => list.number === this.state.pro_number) :""} striped = {true} hover={true} options = {options} >
+        <TableHeaderColumn dataField='id'isKey >ID</TableHeaderColumn>        
+        <TableHeaderColumn dataField='number'>Number</TableHeaderColumn>
         <TableHeaderColumn dataField='name' >Name</TableHeaderColumn>
-        <TableHeaderColumn dataField='professor'>Professor</TableHeaderColumn>
-        <TableHeaderColumn dataField='try'>Try</TableHeaderColumn>
+        
       </BootstrapTable>
       </div>
 
@@ -86,4 +74,4 @@ class Table extends Component {
 
 
 
-export default Table;
+export default Mentolist;

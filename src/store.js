@@ -17,7 +17,7 @@
     }
     if(action.type === 'CODE'){
         return {...state,mode:'CODE',num:action.num,
-        content:state.contentlist[action.num],main_title:action.main_title,back:action.back}
+        content:action.content,main_title:action.main_title,back:action.back}
     }
 
     if(action.type === 'SELECT'){
