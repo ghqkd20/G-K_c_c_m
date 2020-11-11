@@ -28,10 +28,10 @@
         return {...state,mode :'TABLE',main_title:'Problem list',theme:'dracula'}
     }
     if(action.type ==='MENTOR'){
-        return {...state,mode: "MENTOR",main_title:'Question'}
+        return {...state,mode: "MENTOR",main_title:'Question',num:action.num}
     }
     if(action.type ==='BACK2'){
-        return {...state,mode:"CODE",main_title:'Problem list'}
+        return {...state,mode:"CODE",main_title:'Problem list',num:action.num}
     }
     if(action.type ==='SUBMIT'){
         return{...state,mode:"CODE",submit:'yes'}

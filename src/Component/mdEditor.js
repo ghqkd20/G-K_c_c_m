@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {EditorState} from "draft-js";
+import {EditorState , convertToRaw} from "draft-js";
+import draftToHtml from "draftjs-to-html";
 import {Editor} from "react-draft-wysiwyg";
 import Axios, { post } from 'axios';
+import store from '../store';
 //import './myMarkDown.css'
 //import {MathFormatEdit} from './customMarkDown'
 
@@ -33,8 +35,9 @@ class EditorContainer extends Component{
     super(props);
     this.state = {
       editorState: EditorState.createEmpty(),
-      number:'',
+      number:store.getState().num,
       name:'',
+      content:''
     };
   }
 
@@ -44,8 +47,9 @@ class EditorContainer extends Component{
     // console.log(editorState)
     this.setState({
       editorState,
+      content : draftToHtml(convertToRaw(editorState.getCurrentContent()))
     });
-    console.log(editorState.getCurrentContent());
+    console.log(this.state.content);
   };
 
   handleFormSubmit = (e) => {
@@ -57,7 +61,7 @@ class EditorContainer extends Component{
         data: {
             number : this.state.number,
             name : this.state.name,
-            content : this.state.editorState,
+            content : this.state.content,
         }
       })
     //this.addProblem()
@@ -73,12 +77,13 @@ class EditorContainer extends Component{
         name: '',
         content: '',
     })
-    window.location.reload();
+    store.dispatch({type:'BACK2',mode:'CODE',num:this.state.number})
 }
 
 handleValueChange = (e) => {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
+    console.log(e.target.value)
     this.setState(nextState);
 }
 
@@ -88,7 +93,7 @@ handleValueChange = (e) => {
       <form onSubmit={this.handleFormSubmit}>
       <div className='editor' >
       
-      <input type="text" id = 'name' className="ment" label = "글 제목 " placeholder="제목을 입력해 주세요" 
+      <input type="text" name = 'name' className="ment" label = "글 제목 " placeholder="제목을 입력해 주세요" 
       value={this.state.name} onChange={this.handleValueChange}/>
       
       <Editor

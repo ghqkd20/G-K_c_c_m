@@ -43,9 +43,9 @@ class Mentolist extends Component {
     const options = {
       onRowClick : function(e) {
        // debugger;
-       const test = this.state.mentolist.filter(mento => mento.number === e.number);
+       const test = this.state.mentolist.filter(mento => mento.id === e.id);
        console.log(test[0].content);
-        store.dispatch({type:'CODE',mode:'CODE',num:parseInt(e.number),main_title:test[0].name
+        store.dispatch({type:'CODE',mode:'CODE',num:this.state.pro_number,main_title:test[0].name
       ,back:'back', content:test[0].content})
     }.bind(this)
   }
@@ -62,7 +62,6 @@ class Mentolist extends Component {
               );
             }).filter(list => list.number === this.state.pro_number) :""} striped = {true} hover={true} options = {options} >
         <TableHeaderColumn dataField='id'isKey >ID</TableHeaderColumn>        
-        <TableHeaderColumn dataField='number'>Number</TableHeaderColumn>
         <TableHeaderColumn dataField='name' >Name</TableHeaderColumn>
         
       </BootstrapTable>
