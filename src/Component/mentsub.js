@@ -13,7 +13,7 @@ class Mentsub extends Component{
   return(
   <div>
     <h2 className = "code">{this.state.title}</h2>
-    <p className="content"> {this.state.content}</p>
+    <p className="content">{this.state.content}</p>
   </div>
   )
 }

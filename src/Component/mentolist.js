@@ -13,11 +13,14 @@ import store from '../store';
 
 class Mentolist extends Component { 
 
-  state = {
-    mentolist: [],
-    completed: 0,
-    pro_number:store.getState().num
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            mentolist: [],
+            completed: 0,
+            pro_number:store.getState().num
+        }
+    }
 
   componentDidMount() {
     // 프록시로 등록한 서버주소가 생략됨

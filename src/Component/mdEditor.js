@@ -67,6 +67,7 @@ class EditorContainer extends Component{
     //this.addProblem()
         .then((response) => {
             console.log(response.data);
+            store.dispatch({type:'BACK2',mode:'CODE',num:this.state.number})
         })
         .catch((err) => {
             console.log(err);
@@ -77,7 +78,6 @@ class EditorContainer extends Component{
         name: '',
         content: '',
     })
-    store.dispatch({type:'BACK2',mode:'CODE',num:this.state.number})
 }
 
 handleValueChange = (e) => {
