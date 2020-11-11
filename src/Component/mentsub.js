@@ -10,11 +10,16 @@ class Mentsub extends Component{
     super(props); 
   }
   render() {
-  return(
-  <div>
-    <h2 className = "code">{this.state.title}</h2>
-    <p className="content">{this.state.content}</p>
-  </div>
+    function createMarkup(content){
+      return {__html : content}
+    }
+  
+    return(
+    <div>
+      <h2 className = "code">{this.state.title}</h2>
+      <div dangerouslySetInnerHTML={createMarkup(this.state.content)}/>
+
+      </div>
   )
 }
 }
