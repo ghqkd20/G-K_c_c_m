@@ -111,7 +111,7 @@ handleValueChange = (e) => {
       />
       
     </div>
-    <button type = "submit">제출하기</button>
+    <button type = "submit" className="back">제출하기</button>
     </form>
     )
   }

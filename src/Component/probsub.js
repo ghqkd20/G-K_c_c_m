@@ -20,7 +20,6 @@ class Probsub extends Component{
   <div className = "content">
     <p> {this.state.content}</p>
   <br></br>
-  <h2>Code Write </h2>
   </div>
   )
 }

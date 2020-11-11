@@ -8,20 +8,25 @@
             num : 0,
             main_title : 'Problem list',
             title_css : 'code',
-            theme : "dracula",
+            theme : "blackboard",
             back:'btn',
             contentlist : ['this','t1','tt2','tt3'],
             content : 'test',
-            submit : 'no'
+            code_mode : 'javascript',
+            ment_title :' ',
+            ment_content : ' '
         }
     }
     if(action.type === 'CODE'){
         return {...state,mode:'CODE',num:action.num,
         content:action.content,main_title:action.main_title,back:action.back}
     }
+    if(action.type ==='MENT'){
+        return{...state,mode:'MENTOR_R',ment_title:action.main_title,ment_content:action.content}
+    }
 
     if(action.type === 'SELECT'){
-        return {...state,theme:action.theme}
+        return {...state,theme:action.theme,code_mode:action.mode}
     }
 
     if(action.type ==='BACK'){
@@ -31,7 +36,7 @@
         return {...state,mode: "MENTOR",main_title:'Question',num:action.num}
     }
     if(action.type ==='BACK2'){
-        return {...state,mode:"CODE",main_title:'Problem list',num:action.num}
+        return {...state,mode:"CODE"}
     }
     if(action.type ==='SUBMIT'){
         return{...state,mode:"CODE",submit:'yes'}

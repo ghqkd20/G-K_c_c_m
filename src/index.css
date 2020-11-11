@@ -3,6 +3,11 @@
 @import '/node_modules/codemirror/theme/dracula.css';
 @import '/node_modules/codemirror/theme/eclipse.css';
 @import '/node_modules/codemirror/theme/rubyblue.css';
+@import '/node_modules/codemirror/theme/blackboard.css';
+@import '/node_modules/codemirror/theme/hopscotch.css';
+@import '/node_modules/codemirror/theme/icecoder.css';
+@import '/node_modules/codemirror/theme/yonce.css';
+
 
 
 font-face {
@@ -45,16 +50,24 @@ body {
   font-family: monospace;
 }
 .back2{
-  margin-left: 1350px;
+  margin-left: 1360px;
   border: 1px solid rgb(31, 169, 224); background-color: rgba(0,0,0,0); 
   color: rgb(45, 163, 209); padding: 5px;
-  padding: 10px;
+  padding: 5px;
   border-top-left-radius: 10px; border-bottom-left-radius: 10px;
   border-top-right-radius: 10px; border-bottom-right-radius: 10px;
   font-size: large;
   font-family: monospace;
 }
-
+.compile{
+  margin-left: 1340px;
+  margin-top: 30px;
+  border: 1px solid black;
+  padding: 10px;
+  border-top-left-radius: 10px; border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px; border-bottom-right-radius: 10px;
+  color : black
+}
 .editor{
   height: 450px;
   overflow: auto;
@@ -63,4 +76,17 @@ body {
   padding : 5px 0px 0px 10px;
   border-radius: 4px;
   border: 3px solid #555;
+}
+.inn{
+  margin-left : 10px;
+  margin-bottom: 5px;
+  display: inline-block;
+  display: -webkit-inline-box;
+}
+.sel1{
+  margin-left:1050px;
+}
+
+.sel2{
+  margin-left:950px;
 }

@@ -18,7 +18,7 @@ class Title extends Component{
 render(){
 
 	return (
-		<div className = "in" >
+		<div>
 		<h2 className={this.state.className} >{this.state.title}</h2>
 		</div>
 	)

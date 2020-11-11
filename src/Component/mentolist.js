@@ -6,7 +6,6 @@ import * as ReactBootStrap from "react-bootstrap";
 import {BootstrapTable,TableHeaderColumn} from "react-bootstrap-table"
 import {Modal,Button} from "react-bootstrap"
 import {Component } from 'react';
-import Problem from './Problems';
 
 import store from '../store';
 
@@ -45,7 +44,7 @@ class Mentolist extends Component {
        // debugger;
        const test = this.state.mentolist.filter(mento => mento.id === e.id);
        console.log(test[0].content);
-        store.dispatch({type:'CODE',mode:'CODE',num:this.state.pro_number,main_title:test[0].name
+        store.dispatch({type:'MENT',mode:'CODE',num:this.state.pro_number,main_title:test[0].name
       ,back:'back', content:test[0].content})
     }.bind(this)
   }
@@ -61,8 +60,8 @@ class Mentolist extends Component {
               }
               );
             }).filter(list => list.number === this.state.pro_number) :""} striped = {true} hover={true} options = {options} >
-        <TableHeaderColumn dataField='id'isKey >ID</TableHeaderColumn>        
-        <TableHeaderColumn dataField='name' >Name</TableHeaderColumn>
+        <TableHeaderColumn dataField='id'isKey >INDEX</TableHeaderColumn>        
+        <TableHeaderColumn dataField='name' >Question</TableHeaderColumn>
         
       </BootstrapTable>
       </div>

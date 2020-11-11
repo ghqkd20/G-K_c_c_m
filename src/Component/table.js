@@ -6,7 +6,7 @@ import * as ReactBootStrap from "react-bootstrap";
 import {BootstrapTable,TableHeaderColumn} from "react-bootstrap-table"
 import {Modal,Button} from "react-bootstrap"
 import {Component } from 'react';
-import Problem from './Problems';
+
 
 import store from '../store';
 

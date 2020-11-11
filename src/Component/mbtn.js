@@ -7,10 +7,10 @@ class Mbtn extends Component{
 	}
 	render(){
 		return (
-			<button className = "back2" onClick={function(){
+			<button className = "back" onClick={function(){
 				store.dispatch({type:'MENTOR',mode:'MENTOR',num:this.state.pro_number})
 			}.bind(this)}>
-				  멘토링
+				  질문하기
 			</button>
 		)
 	}

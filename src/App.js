@@ -10,8 +10,8 @@ import Select from './Component/select';
 import Mbtn from './Component/mbtn';
 import MDEditor from './Component/mdEditor';
 import Back2 from './Component/back2';
-import Submit from './Component/submit';
 import Mentolist from './Component/mentolist';
+import Mentsub from './Component/mentsub'
 import store from './store';
 import './index.css';
 
@@ -49,6 +49,8 @@ class App extends Component {
         <Mbtn></Mbtn>
         <Select></Select>
         <Code></Code>
+        <br></br>
+        <h3 className="code">멘토링 내역</h3>
         <Mentolist/>
         </div>
       }
@@ -57,8 +59,12 @@ class App extends Component {
           <Back2></Back2>
           <Title></Title>
           <MDEditor></MDEditor>
-          <Submit></Submit>
-
+        </div>
+      }
+      else if(this.state.mode ==='MENTOR_R'){
+        two_mode = <div>
+          <Back2></Back2>
+          <Mentsub></Mentsub>
         </div>
       }
       return (
