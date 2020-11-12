@@ -51,6 +51,7 @@ class App extends Component {
         <Select></Select>
         <Code></Code>
         <br></br>
+        
         <h3 className="code">멘토링 내역</h3>
         <Mentolist/>
         </div>
@@ -60,7 +61,6 @@ class App extends Component {
           <Back2></Back2>
           <Title></Title>
           <MDEditor></MDEditor>
-          <MyEditor></MyEditor>
         </div>
       }
       else if(this.state.mode ==='MENTOR_R'){
@@ -72,6 +72,7 @@ class App extends Component {
       return (
         <div>
           {two_mode}
+          <MyEditor></MyEditor>
           </div> 
       )
       }

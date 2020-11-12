@@ -40,10 +40,10 @@
         return {...state,mode: "MENTOR",main_title:'Question',num:action.num}
     }
     if(action.type ==='BACK2'){
-        return {...state,mode:"CODE"}
+        return {...state,mode:"CODE",math_mode:action.math_mode}
     }
     if(action.type ==='SUBMIT'){
-        return{...state,mode:"CODE",submit:'yes'}
+        return{...state,mode:"CODE",math_mode:action.math_mode}
     }
     return state;
     }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

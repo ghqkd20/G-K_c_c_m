@@ -1,10 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { AtomicBlockUtils,EditorState, Modifier } from 'draft-js';
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
 import store from '../store';
 
 
