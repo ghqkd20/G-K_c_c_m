@@ -14,12 +14,16 @@
             content : 'test',
             code_mode : 'javascript',
             ment_title :' ',
-            ment_content : ' '
+            ment_content : ' ',
+            math_mode : 'no',
         }
     }
     if(action.type === 'CODE'){
         return {...state,mode:'CODE',num:action.num,
         content:action.content,main_title:action.main_title,back:action.back}
+    }
+    if(action.type ==='math'){
+        return {...state,math_mode:action.math_mode}
     }
     if(action.type ==='MENT'){
         return{...state,mode:'MENTOR_R',ment_title:action.main_title,ment_content:action.content}

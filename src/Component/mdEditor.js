@@ -3,9 +3,11 @@ import {EditorState , convertToRaw} from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import {Editor} from "react-draft-wysiwyg";
 import Axios, { post } from 'axios';
+import PropTypes from 'prop-types';
 import store from '../store';
+import MyEditor from './mathjax'
 //import './myMarkDown.css'
-//import {MathFormatEdit} from './customMarkDown'
+import {MathFormatEdit} from './customMarkDown'
 
 
 function uploadImageCallBack(file) {
@@ -90,6 +92,7 @@ handleValueChange = (e) => {
   render(){
     const { editorState } = this.state;
     return (
+      <div>
       <form onSubmit={this.handleFormSubmit}>
       <div className='editor' >
       
@@ -99,7 +102,7 @@ handleValueChange = (e) => {
       <Editor
         editorState={editorState}
         onEditorStateChange={this.onEditorStateChange}
-       // toolbarCustomButtons={[<MathFormatEdit />]}    
+       toolbarCustomButtons={[<MathFormatEdit/>]}    
         toolbar={{
           inline: { inDropdown: false },
           list: { inDropdown: true },
@@ -109,10 +112,12 @@ handleValueChange = (e) => {
           image: { uploadCallback: uploadImageCallBack, alt: { present: true, mandatory: true } },
         }}
       />
-      
+
     </div>
     <button type = "submit" className="back">제출하기</button>
     </form>
+
+    </div>
     )
   }
 }

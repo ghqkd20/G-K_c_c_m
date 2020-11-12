@@ -11,7 +11,8 @@ import Mbtn from './Component/mbtn';
 import MDEditor from './Component/mdEditor';
 import Back2 from './Component/back2';
 import Mentolist from './Component/mentolist';
-import Mentsub from './Component/mentsub'
+import Mentsub from './Component/mentsub';
+import MyEditor from './Component/mathjax';
 import store from './store';
 import './index.css';
 
@@ -59,6 +60,7 @@ class App extends Component {
           <Back2></Back2>
           <Title></Title>
           <MDEditor></MDEditor>
+          <MyEditor></MyEditor>
         </div>
       }
       else if(this.state.mode ==='MENTOR_R'){

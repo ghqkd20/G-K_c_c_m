@@ -90,3 +90,9 @@ body {
 .sel2{
   margin-left:950px;
 }
+.no{
+  display: none;
+}
+.yes{
+  display: inline-block;
+}

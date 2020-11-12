@@ -40,7 +40,7 @@ class Code extends Component{
 			
 		<CodeMirror
 			
-			value={'<h1>I react-codemirror2</h1>'}
+			value={'<h1>I react-codemirror2</h1>\n\n def main():\n \n #include<stdio.h>\n\n int main(void){\n}\n\nfunction test(){} '}
 			options={{lineNumbers: true,
 			mode: this.state.mode,
 			theme : this.state.theme,
