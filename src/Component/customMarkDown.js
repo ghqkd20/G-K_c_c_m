@@ -23,4 +23,4 @@ class MathFormatEdit extends Component {
   }
 }
 
-export {MathFormatEdit};
+export default MathFormatEdit;

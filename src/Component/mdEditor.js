@@ -70,7 +70,7 @@ class EditorContainer extends Component{
     //this.addProblem()
         .then((response) => {
             console.log(response.data);
-            store.dispatch({type:'BACK2',mode:'CODE',num:this.state.number})
+            store.dispatch({type:'BACK2',mode:'CODE',num:this.state.number,math_mode:'no'})
         })
         .catch((err) => {
             console.log(err);
