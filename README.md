@@ -1,10 +1,3 @@
-### NEW MARK DOWN
-
-- npm install draft-js
-- npm install --save react-draft-wysiwyg draft-js
-- npm i react-katex
-- npm install draftjs-to-html
-
 
 # 프로젝트 이름
 
@@ -80,3 +73,7 @@ http:// localhost:5000
 
 - CodeMirror([https://codemirror.net/](https://codemirror.net/)) : MIT
 - react-markdown([https://www.npmjs.com/package/react-markdown](https://www.npmjs.com/package/react-markdown)) : MIT
+- Draft-js ([https://www.npmjs.com/package/draft-js](https://draftjs.org/)) : MIT
+- react-draft-wysiwyg ([https://www.npmjs.com/package/react-draft-wysiwyg](https://jpuri.github.io/react-draft-wysiwyg/#/))  : MIT
+- draftjs-to-html ([https://www.npmjs.com/package/draftjs-to-html](https://github.com/jpuri/draftjs-to-html))  : MIT
+- draft-js-mathjax-plugin ([https://www.npmjs.com/package/draft-js-mathjax-plugin](github.com/efloti/draft-js-mathjax-plugin)) : MIT
