@@ -3,15 +3,14 @@ import { EditorState } from 'draft-js'
 import Editor from 'draft-js-plugins-editor'
 import createMathjaxPlugin from 'draft-js-mathjax-plugin'
 import store from '../store'
-
 const mathjaxPlugin = createMathjaxPlugin(/* optional configuration object */)
  
-const myplugins = [
+const plugins = [
   mathjaxPlugin,
 ]
  
 export default class MyEditor extends Component {
-  
+ 
   state = {
     math_mode :store.getState().math_mode,
     editorState: EditorState.createEmpty(),
@@ -30,16 +29,16 @@ export default class MyEditor extends Component {
     })
   }
   render() {
+    const { editorState } = this.state;
     return (
-     <div className = {this.state.math_mode}>
-         <h3 className ="code">수식 입력</h3>
-    
+    <div className = {this.state.math_mode}>
+        <h3 className ="code">수식 입력</h3>
       <Editor 
-        editorState={this.state.editorState}
+        editorState= {editorState}
         onChange={this.onChange}
-        plugins={myplugins}
+        plugins={plugins}
       />
-       </div>
+      </div>
     )
   }
 }

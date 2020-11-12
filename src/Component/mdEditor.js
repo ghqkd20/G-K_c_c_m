@@ -6,8 +6,9 @@ import Axios, { post } from 'axios';
 import PropTypes from 'prop-types';
 import store from '../store';
 import MyEditor from './mathjax'
+
 //import './myMarkDown.css'
-import {MathFormatEdit} from './customMarkDown'
+import MathFormatEdit from './customMarkDown'
 
 
 function uploadImageCallBack(file) {
@@ -69,14 +70,15 @@ class EditorContainer extends Component{
     //this.addProblem()
         .then((response) => {
             console.log(response.data);
-            store.dispatch({type:'BACK2',mode:'CODE',num:this.state.number,math_mode:'no'})
+            store.dispatch({type:'BACK2',mode:'CODE',num:this.state.number})
         })
         .catch((err) => {
             console.log(err);
         })
     
     this.setState({
-        number: '',
+        editorState: EditorState.createEmpty(),
+        number: store.getState().num,
         name: '',
         content: '',
     })
@@ -92,7 +94,6 @@ handleValueChange = (e) => {
   render(){
     const { editorState } = this.state;
     return (
-      <div>
       <form onSubmit={this.handleFormSubmit}>
       <div className='editor' >
       
@@ -116,8 +117,6 @@ handleValueChange = (e) => {
     </div>
     <button type = "submit" className="back">제출하기</button>
     </form>
-
-    </div>
     )
   }
 }
