@@ -1,14 +1,18 @@
 var proxy = require('http-proxy-middleware');
 module.exports = function (app) {
     app.use(
-        proxy.createProxyMiddleware('/problems', {
+        proxy.createProxyMiddleware('/problems',{
             target: 'http://localhost:5000/'
         })
     );
-
+     app.use(
+         proxy.createProxyMiddleware('/mentorings', {
+             target: 'http://localhost:5000/'
+         })
+     );
     app.use(
-        proxy.createProxyMiddleware('/mentorings', {
-            target: 'http://localhost:5000/'
+        proxy.createProxyMiddleware('/run', {
+            target: 'http://localhost:3000/'
         })
     );
 };
