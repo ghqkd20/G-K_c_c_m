@@ -51,6 +51,7 @@ class Code extends Component{
     
     onsubmittest = async(e) => {
         e.preventDefault()
+
         const response = await fetch('/run',{
            method: "POST",
            headers:{
@@ -58,16 +59,15 @@ class Code extends Component{
            },
            body : JSON.stringify({
               code : this.state.content,
-              stdin : "0"
+              stdin : "0",
+              mode : this.state.mode
            })
         });
         const body = await response.json();
         //alert(JSON.parse(body))
         this.setState({result:JSON.parse
             (body)['stdout']})
-        //console.log(this.state.result)
-        //debugger;
-        //console.log(this.state.result.stdout)
+        
         return body;   
      }
   
@@ -84,7 +84,8 @@ class Code extends Component{
             value='<h1>I react-codemirror2</h1>\n\n def main():\n \n #include<stdio.h>\n\n int main(void){\n}\n\nfunction test(){} '
             options={{lineNumbers: true,
             mode: this.state.mode,
-            theme : this.state.theme,
+          //      mode : "text/x-csrc",
+          theme : this.state.theme,
             gutters:["CodeMirror-lint-markers"],
             lint: true,
             smartIndent : true,   // maybe set line start point
@@ -107,7 +108,8 @@ class Code extends Component{
             />
             </div>
             <button type = "submit" className="compile" >Compile</button>
-            <p>{this.state.result}</p>
+            <p className="code">실행 결과</p>
+            <p className="coderesult">{this.state.result}</p>
             </form>
         )
         }

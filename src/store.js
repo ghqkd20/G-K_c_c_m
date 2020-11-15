@@ -12,7 +12,7 @@
             back:'btn',
             contentlist : ['this','t1','tt2','tt3'],
             content : 'test',
-            code_mode : 'javascript',
+            code_mode : 'text/x-c++src',
             ment_title :' ',
             ment_content : ' ',
             math_mode : 'no',

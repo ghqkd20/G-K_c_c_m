@@ -30,6 +30,13 @@ body {
   padding-bottom: 20px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.coderesult {
+  font-size: x-large;
+  margin-left: 20px;
+  font-variant: unset;
+  padding-bottom: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .content{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: medium;

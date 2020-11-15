@@ -3,7 +3,7 @@ import store from '../store';
 
 class Select extends Component{
 
-	state = {theme : 'dracula',mode :'javascript'}
+	state = {theme : 'dracula',mode : store.getState().code_mode}
 	render(){
 		return (<div className = "inn">
   			<h3>Code Write </h3>
@@ -30,14 +30,9 @@ class Select extends Component{
 				this.setState({mode:mode})
 				store.dispatch({type:'SELECT',theme:theme,mode:mode})
 			}.bind(this)}>
-				<option value="javascript"selected="selected" >javascript</option>
-				<option value="cmake" >cmake</option>
 				<option value="python" >python</option>
-				<option value="php" >clike</option>
-				<option value="r" >R</option>
-				<option value="go" >Go</option>
-				<option value="xml" >Xml</option>
-				<option value="vue" >vue</option>
+				<option value="text/x-csrc" >c</option>
+				<option value="text/x-c++src"selected="selected" >c++</option>
 			</select>
 			</div>
 		)
