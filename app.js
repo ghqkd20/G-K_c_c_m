@@ -24,12 +24,13 @@ app.post("/run", function (req, res) {
     //console.log(req.body.code);
     var code = req.body.code;//atob(req.body.code);
     var stdin = req.body.stdin;//atob(req.body.stdin);
-    var language = req.body.language;
+    var mode = req.body.mode;
+    console.log(mode)
     
     // res.send(JSON.stringify({
     //     "code" : req.query.code, "stdout" : req.query.stdin
     // }));
-    if(language == "C"){
+    if(mode == "text/x-csrc"){
         console.log("C");
         jd_gcc.judge(code, stdin).then(function (data) {
             var payload = JSON.stringify({
@@ -44,7 +45,7 @@ app.post("/run", function (req, res) {
         }).catch(function (data) {
             res.json("something went horribly wrong!");
         })
-    }else if(language == "C++"){
+    }else if(mode == "text/x-c++src"){
         console.log("C++");
         jd_gpp.judge(code, stdin).then(function (data) {
             var payload = JSON.stringify({
@@ -59,7 +60,7 @@ app.post("/run", function (req, res) {
         }).catch(function (data) {
             res.json("something went horribly wrong!");
         })
-    }else if(language == "Python"){
+    }else if(mode == "python"){
         console.log("Python");
         jd_python.judge(code, stdin).then(function (data) {
             var payload = JSON.stringify({
