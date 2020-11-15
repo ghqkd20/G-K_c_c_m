@@ -32,7 +32,8 @@ class Code extends Component{
     constructor(props){
       super(props);
       this.state={theme:store.getState().theme,
-            input:store.getState().input,
+			testcase:[],
+			completed: 0,
             mode:store.getState().code_mode,
             content:'<h1>I react-codemirror2</h1>\n\n def main():\n \n #include<stdio.h>\n\n int main(void){\n}\n\nfunction test(){} '
         ,result:[]}
@@ -41,24 +42,41 @@ class Code extends Component{
       }.bind(this))
    }
 
-//    componentDidMount() {
-//     this.onsubmittest()
-//     .then(res => {
-//        //const mydata = JSON.parse(data);
-//        console.log(res);
-//        //this.setState({result:mydata})
-//     })
-//     .catch(err => console.log(err));
-//     }
-    
+	componentDidMount() {
+		// 프록시로 등록한 서버주소가 생략됨
+		this.timer = setInterval(this.progress, 20);
+		this.callApi()
+		.then(res => this.setState({testcase: res}))
+		.catch(err => console.log(err));
+	}
+
+	callApi = async () => {
+		const response = await fetch('/testcases'+'/'+store.getState().num);
+		const body = await response.json();
+		return body;
+	}
+
+	progress = () => {
+		const { completed } = this.state;
+		this.setState({ completed: completed >= 100 ? 0 : completed + 1});
+	}
+
     onsubmittest = async(e) => {
-        e.preventDefault()
-        for(var i =0;i<this.state.input.length;i++){
-            this.submit(this.state.input[i])
+		e.preventDefault()
+        for(var i =0;i<this.state.testcase.length;i++){
+			console.log(this.state.testcase[i].output)
+			this.submit(this.state.testcase[i].input)
+			
+			if(this.state.testcase[i].output === this.state.result){
+				alert("정답")
+			}
+			else{
+				alert("오답")
+			}
             for(var j = 0;j<1000000000;j++){
                 
-            }
-            console.log(new Date())
+			}
+			console.log(this.state.result)
         }
      }
   
@@ -79,19 +97,18 @@ class Code extends Component{
          //alert(JSON.parse(body))
           this.setState({result:JSON.parse
               (body)['stdout']})
-         alert(this.state.result)
+		 console.log(this.state.result)
+		 alert(this.state.result)
          return body;   
     }
 
     render(){
      
     return (
-        
             <form onSubmit={this.onsubmittest}>
 
         <div className ="Code">
         <CodeMirror
-            
             value='<h1>I react-codemirror2</h1>\n
             \n def main():\n 
             \n #include<stdio.h>\n

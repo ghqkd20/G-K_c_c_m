@@ -10,6 +10,11 @@ module.exports = function (app) {
              target: 'http://localhost:5000/'
          })
      );
+     app.use(
+        proxy.createProxyMiddleware('/testcases', {
+            target: 'http://localhost:5000/'
+        })
+    );
     app.use(
         proxy.createProxyMiddleware('/run', {
             target: 'http://localhost:3000/'
