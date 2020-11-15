@@ -16,6 +16,7 @@
             ment_title :' ',
             ment_content : ' ',
             math_mode : 'no',
+            input : ['2 3','3 4','4 5','5 6','7 8']
         }
     }
     if(action.type === 'CODE'){

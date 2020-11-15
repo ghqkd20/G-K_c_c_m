@@ -8,6 +8,7 @@ import Select from './select';
 import store from '../store';
 import '../index.css';
 import MDEditor from './mdEditor';
+import { RichUtils } from 'draft-js';
 
 require('codemirror/addon/hint/show-hint.css');
 require('codemirror/mode/clike/clike');
@@ -31,6 +32,7 @@ class Code extends Component{
     constructor(props){
       super(props);
       this.state={theme:store.getState().theme,
+            input:store.getState().input,
             mode:store.getState().code_mode,
             content:'<h1>I react-codemirror2</h1>\n\n def main():\n \n #include<stdio.h>\n\n int main(void){\n}\n\nfunction test(){} '
         ,result:[]}
@@ -39,38 +41,47 @@ class Code extends Component{
       }.bind(this))
    }
 
-   componentDidMount() {
-    this.onsubmittest()
-    .then(res => {
-       //const mydata = JSON.parse(data);
-       console.log(res);
-       //this.setState({result:mydata})
-    })
-    .catch(err => console.log(err));
-    }
+//    componentDidMount() {
+//     this.onsubmittest()
+//     .then(res => {
+//        //const mydata = JSON.parse(data);
+//        console.log(res);
+//        //this.setState({result:mydata})
+//     })
+//     .catch(err => console.log(err));
+//     }
     
     onsubmittest = async(e) => {
         e.preventDefault()
-
-        const response = await fetch('/run',{
-           method: "POST",
-           headers:{
-              'Content-type' : 'application/json'
-           },
-           body : JSON.stringify({
-              code : this.state.content,
-              stdin : "0",
-              mode : this.state.mode
-           })
-        });
-        const body = await response.json();
-        //alert(JSON.parse(body))
-        this.setState({result:JSON.parse
-            (body)['stdout']})
-        
-        return body;   
+        for(var i =0;i<this.state.input.length;i++){
+            this.submit(this.state.input[i])
+            for(var j = 0;j<1000000000;j++){
+                
+            }
+            console.log(new Date())
+        }
      }
   
+    async submit(input){
+        const response = await fetch('/run',{
+            method: "POST",
+            headers:{
+               'Content-type' : 'application/json'
+            },
+            body : JSON.stringify({
+               code : this.state.content,
+               stdin : input,
+               mode : this.state.mode,
+               num : store.getState().num
+            })
+         });
+         const body = await response.json();
+         //alert(JSON.parse(body))
+          this.setState({result:JSON.parse
+              (body)['stdout']})
+         alert(this.state.result)
+         return body;   
+    }
 
     render(){
      
@@ -81,7 +92,10 @@ class Code extends Component{
         <div className ="Code">
         <CodeMirror
             
-            value='<h1>I react-codemirror2</h1>\n\n def main():\n \n #include<stdio.h>\n\n int main(void){\n}\n\nfunction test(){} '
+            value='<h1>I react-codemirror2</h1>\n
+            \n def main():\n 
+            \n #include<stdio.h>\n
+            \n int main(void){\n}\n\nfunction test(){} '
             options={{lineNumbers: true,
             mode: this.state.mode,
           //      mode : "text/x-csrc",
