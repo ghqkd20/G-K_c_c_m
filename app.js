@@ -9,7 +9,7 @@ var jd_python = require("./judge_python");
 
 
 var app = express();
-app.set('port',process.env.PORT || 5000);
+//app.set('port',process.env.PORT || 5050);
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -87,6 +87,6 @@ app.get('/servertext',(req,res) =>{
     ])
 })
 
-app.listen(5000, function () {
+app.listen(3000, function () {
     console.log("serving at http://localhost:5000");
 });
