@@ -3,6 +3,9 @@ var bodyParser = require("body-parser");
 var btoa = require("btoa");
 var atob = require("atob");
 var jd = require("./judge");
+var jd_gcc = require("./judge_gcc");
+var jd_gpp = require("./judge_gpp");
+var jd_python = require("./judge_python");
 
 
 var app = express();
@@ -21,23 +24,57 @@ app.post("/run", function (req, res) {
     //console.log(req.body.code);
     var code = req.body.code;//atob(req.body.code);
     var stdin = req.body.stdin;//atob(req.body.stdin);
+    var language = req.body.language;
     
     // res.send(JSON.stringify({
     //     "code" : req.query.code, "stdout" : req.query.stdin
     // }));
-    jd.judge(code, stdin).then(function (data) {
-        var payload = JSON.stringify({
-            "stdout": data[0],
-            "stderr": data[1]
-        });
-        console.log(payload);
-        console.log("\n\n");
-        //console.log(btoa(payload));
-        console.log("\n\n");
-        res.json(payload)
-    }).catch(function (data) {
-        res.json("something went horribly wrong!");
-    })
+    if(language == "C"){
+        console.log("C");
+        jd_gcc.judge(code, stdin).then(function (data) {
+            var payload = JSON.stringify({
+                "stdout": data[0],
+                "stderr": data[1]
+            });
+            console.log(payload);
+            console.log("\n\n");
+            //console.log(btoa(payload));
+            console.log("\n\n");
+            res.json(payload)
+        }).catch(function (data) {
+            res.json("something went horribly wrong!");
+        })
+    }else if(language == "C++"){
+        console.log("C++");
+        jd_gpp.judge(code, stdin).then(function (data) {
+            var payload = JSON.stringify({
+                "stdout": data[0],
+                "stderr": data[1]
+            });
+            console.log(payload);
+            console.log("\n\n");
+            //console.log(btoa(payload));
+            console.log("\n\n");
+            res.json(payload)
+        }).catch(function (data) {
+            res.json("something went horribly wrong!");
+        })
+    }else if(language == "Python"){
+        console.log("Python");
+        jd_python.judge(code, stdin).then(function (data) {
+            var payload = JSON.stringify({
+                "stdout": data[0],
+                "stderr": data[1]
+            });
+            console.log(payload);
+            console.log("\n\n");
+            //console.log(btoa(payload));
+            console.log("\n\n");
+            res.json(payload)
+        }).catch(function (data) {
+            res.json("something went horribly wrong!");
+        })
+    }
 })
 
 app.get('/servertext',(req,res) =>{
