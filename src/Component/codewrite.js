@@ -64,7 +64,7 @@ class Code extends Component{
     onsubmittest = async(e) => {
 		e.preventDefault()
         for(var i =0;i<this.state.testcase.length;i++){
-			console.log(this.state.testcase[i].output)
+			console.log(this.state.testcase[i].input)
 			this.submit(this.state.testcase[i].input)
 			
 			if(this.state.testcase[i].output === this.state.result){

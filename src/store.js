@@ -16,7 +16,8 @@
             ment_title :' ',
             ment_content : ' ',
             math_mode : 'no',
-            input : ['2 3','3 4','4 5','5 6','7 8']
+            add_mode : 'no',
+            input : []
         }
     }
     if(action.type === 'CODE'){
@@ -25,6 +26,9 @@
     }
     if(action.type ==='math'){
         return {...state,math_mode:action.math_mode}
+    }
+    if(action.type ==='add'){
+        return {...state,add_mode:action.add_mode}
     }
     if(action.type ==='MENT'){
         return{...state,mode:'MENTOR_R',ment_title:action.main_title,ment_content:action.content}
@@ -35,7 +39,7 @@
     }
 
     if(action.type ==='BACK'){
-        return {...state,mode :'TABLE',main_title:'Problem list',theme:'dracula'}
+        return {...state,mode :'TABLE',main_title:'Problem list',theme:'dracula',add_mode:action.add_mode}
     }
     if(action.type ==='MENTOR'){
         return {...state,mode: "MENTOR",main_title:'Question',num:action.num}

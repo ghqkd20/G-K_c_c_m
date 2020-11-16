@@ -6,7 +6,8 @@ import * as ReactBootStrap from "react-bootstrap";
 import {BootstrapTable,TableHeaderColumn} from "react-bootstrap-table"
 import {Modal,Button} from "react-bootstrap"
 import {Component } from 'react';
-
+import Add from './addbtn';
+import Addproblem from './addproblem'
 
 import store from '../store';
 
@@ -26,11 +27,24 @@ class Table extends Component {
 //       }
 //   }  
 // }
-
-  state = {
-    problems: [],
-    completed: 0
+  constructor(props) {
+    super(props);
+    this.state = {
+      problems: [],
+      completed: 0
+    }
   }
+
+  stateRefresh = () =>{
+    this.setState({
+      problem : [],
+      completed: 0
+    });
+    this.callApi()
+      .then(res => this.setState({problems: res}))
+      .catch(err => console.log(err));
+  }
+  
 
   componentDidMount() {
     // 프록시로 등록한 서버주소가 생략됨
@@ -57,8 +71,8 @@ class Table extends Component {
        // debugger;
        const test = this.state.problems.filter(problem => problem.number === e.number);
        console.log(test[0].content);
-        store.dispatch({type:'CODE',mode:'CODE',num:parseInt(e.number),main_title:test[0].name
-      ,back:'back', content:test[0].content})
+          store.dispatch({type:'CODE',mode:'CODE',num:parseInt(e.number),main_title:test[0].name
+        ,back:'back', content:test[0].content})
     }.bind(this)
   }
   
@@ -78,6 +92,8 @@ class Table extends Component {
         <TableHeaderColumn dataField='professor'>Professor</TableHeaderColumn>
         <TableHeaderColumn dataField='try'>Try</TableHeaderColumn>
       </BootstrapTable>
+      <Add/>
+      <Addproblem stateRefresh={this.stateRefresh}/>
       </div>
 
       )
