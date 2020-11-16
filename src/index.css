@@ -32,11 +32,11 @@ body {
 }
 .coderesult {
   background-color: lightblue;
-  font-size: x-large;
+  font-size: large;
   margin-left: 20px;
   font-variant: unset;
   padding-bottom: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .content{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
