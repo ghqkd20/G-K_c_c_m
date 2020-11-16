@@ -22,7 +22,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.codewrite{
+  margin-left: 10px;
+}
 .code {
   font-size: xx-large;
   margin-left: 20px;

@@ -99,28 +99,6 @@ class Code extends Component{
             }			
         }
      }
-    //  testscore(){
-    //     for(var i =0;i<this.state.testcase.length;i++){
-    //         switch(i){
-    //             case 0:
-    //                 if(this.state.testcase.output[i]==first)
-    //             case 1:
-    //                 this.setState({second:JSON.parse
-    //                     (body)['stdout']})
-    //             case 2:
-    //                 this.setState({third:JSON.parse
-    //                     (body)['stdout']})
-    //             case 3:
-    //                 this.setState({fourth:JSON.parse
-    //                     (body)['stdout']})
-    //             case 4:{
-    //                 this.setState({five:JSON.parse
-    //                     (body)['stdout']})
-    //         this.setState({testinput:this.state.testcase})
-    //     }
-    //     }
-    //  }
-    // }
     async submit(i,input){
         const response = await fetch('/run',{
             method: "POST",
@@ -141,49 +119,33 @@ class Code extends Component{
          switch(i){
             case 0:{
                 var val = JSON.parse(body)['stdout']
-                this.setState({first:i+". test input ="+this.state.testcase[i].input+", test output ="+this.state.testcase[i].output+", result : "+JSON.parse
+                this.setState({first:i+". test input ="+this.state.testcase[i].input+", test output ="+this.state.testcase[i].output+", result => "+JSON.parse
                     (body)['stdout']})
-                if(this.state.testcase[i].output===val)
-                    this.state.score+=20
                 break;
             }
             case 1:{
                 var val = JSON.parse(body)['stdout']
-                this.setState({second:i+". test input ="+this.state.testcase[i].input+", test output ="+this.state.testcase[i].output+", result : "+JSON.parse
+                this.setState({second:i+". test input ="+this.state.testcase[i].input+", test output ="+this.state.testcase[i].output+", result => "+JSON.parse
                     (body)['stdout']})
-                if(this.state.testcase[i].output===val){
-                    this.state.score+=20
-                }
                 break;
             }
             case 2:{
                 var val = JSON.parse(body)['stdout']
-                this.setState({third:i+". test input ="+this.state.testcase[i].input+", test output ="+this.state.testcase[i].output+", result : "+JSON.parse
+                this.setState({third:i+". test input ="+this.state.testcase[i].input+", test output ="+this.state.testcase[i].output+", result => "+JSON.parse
                     (body)['stdout']})
-                if(this.state.testcase[i].output===val){
-                    this.state.score+=20
-                }
                 break;
             }
             case 3:{
                 var val = JSON.parse(body)['stdout']
-                this.setState({fourth:i+". test input ="+this.state.testcase[i].input+", test output ="+this.state.testcase[i].output+", result : "+JSON.parse
+                this.setState({fourth:i+". test input ="+this.state.testcase[i].input+", test output ="+this.state.testcase[i].output+", result => "+JSON.parse
                     (body)['stdout']})
-                if(this.state.testcase[i].output===val){
-                        this.state.score+=20
-                }
+
                 break;
             }
             case 4:{
                 var val = JSON.parse(body)['stdout']
-                this.setState({five:i+". test input ="+this.state.testcase[i].input+", test output :"+this.state.testcase[i].output+", result : "+JSON.parse
+                this.setState({five:i+". test input ="+this.state.testcase[i].input+", test output :"+this.state.testcase[i].output+", result => "+JSON.parse
                     (body)['stdout']})
-                
-                 
-                if(this.state.testcase[i].output===val){
-                    this.state.score+=20                 
-                }
-                //this.setState({test_score:"Score : " +this.state.score})
                 break;
             }
         }

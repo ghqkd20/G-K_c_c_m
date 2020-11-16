@@ -6,7 +6,7 @@ class Select extends Component{
 	state = {theme : 'dracula',mode : store.getState().code_mode}
 	render(){
 		return (<div className = "inn">
-  			<h3>Code Write </h3>
+  			<h3 className="codewrite">Code Write </h3>
 			<label className ="sel1" for="theme">Theme : </label>
 			<select name = "test" id = "theme" onChange={function(e){
 				var mode = this.state.mode;
