@@ -42,11 +42,11 @@ PNU_OpenSW_CCM_Site
 2. docker run -d -p 5432:5432 --name pgsql -e POSTGRES_PASSWORD=postgres postgres
 
 - OnlineJudge compile server : (for_judge branch 참조 )
-1. docker pull ghqkd20/onlinejudge:0.1
-2. docker run -d -p 3000:3000 ghqkd20/onlinejudge:0.1
+1. docker pull ghqkd20/onlinejudge:0.2
+2. docker run -d -p 3000:3000 ghqkd20/onlinejudge:0.2
 * docker 환경설정 원할시  
  memory 설정 = > --memory=1g ,cpu설정 => --cpu-shares=2048
- ex> docker run -d -p 3000:3000 --memory=1g ghqkd20/onlinejudge:0.1
+ ex> docker run -d -p 3000:3000 --memory=1g ghqkd20/onlinejudge:0.2
 
 ### **테스트 환경**
 
