@@ -5,7 +5,7 @@ class Back extends Component{
 	render(){
 		return (
 			<button className = "back" onClick={function(){
-				store.dispatch({type:'BACK',mode:'table'})
+				store.dispatch({type:'BACK',mode:'table', add_mode:'no'})
 			}.bind(this)}>
 				돌아가기
 			</button>

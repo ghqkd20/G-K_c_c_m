@@ -36,6 +36,7 @@ class Code extends Component{
             fourth:"",
             five :"",
             score:0,
+            count:-1,
             test_score:"",
             content:'<h1>I react-codemirror2</h1>\n\n def main():\n \n #include<stdio.h>\n\n int main(void){\n}\n\nfunction test(){} '
         ,result:[]}
@@ -43,7 +44,6 @@ class Code extends Component{
             this.setState({theme:store.getState().theme,mode:store.getState().code_mode});
       }.bind(this))
    }
-
 	componentDidMount() {
 		// 프록시로 등록한 서버주소가 생략됨
 		this.timer = setInterval(this.progress, 20);
@@ -66,12 +66,26 @@ class Code extends Component{
     onsubmittest = async(e) => {
 		e.preventDefault()
         for(var i =0;i<this.state.testcase.length;i++){
-
+            
 			console.log(this.state.testcase[i].input)
-			this.submit(this.state.testcase[i].input)
+            //this.submit(this.state.testcase[i].input)
 
-			console.log(this.state.testcase[i].output)
-			this.submit(i,this.state.testcase[i].input)
+			//console.log(this.state.testcase[i].output)
+            this.submit(i,this.state.testcase[i].input)
+                .then((response) => {
+                    console.log(this.state.result)
+                    {parseInt(this.state.result) == parseInt(this.state.testcase[this.state.count].output) ? 
+                        this.setState({score : this.state.score + (100/this.state.testcase.length),
+                        }) 
+                    : console.log("no")}
+                    {this.state.count != this.state.testcase.length-1 ? 
+                        console.log(this.state.score)
+                        : this.setState({
+                            count : -1,
+                            score : 0,
+                            test_score :" Score : " + this.state.score
+                        })}
+                })
 
 			
 			// if(this.state.testcase[i].output === this.state.result){
@@ -82,8 +96,7 @@ class Code extends Component{
 			// }
             for(var j = 0;j<1000000000;j++){
                 
-			}
-			console.log(this.state.result)
+            }			
         }
      }
     //  testscore(){
@@ -122,6 +135,8 @@ class Code extends Component{
             })
          });
          const body = await response.json();
+         this.setState({result : JSON.parse(body)['stdout'],
+        count : this.state.count +1 })
          //alert(JSON.parse(body))
          switch(i){
             case 0:{
@@ -168,14 +183,13 @@ class Code extends Component{
                 if(this.state.testcase[i].output===val){
                     this.state.score+=20                 
                 }
-                this.setState({test_score:"Score : " +this.state.score})
+                //this.setState({test_score:"Score : " +this.state.score})
                 break;
             }
-		 //console.log(this.state.result)
+        }
          //alert(this.state.result)
          
-         return body;   
-    }
+         return body;
 }
 
     render(){
