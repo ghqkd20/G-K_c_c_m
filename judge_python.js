@@ -33,7 +33,7 @@ function judge(program, inputData) {
         return console.log(err);
       }
       //execute the output file
-          var run = spawn('python',['./' + 'tmp/' + filename,[]]);
+          var run = spawn('python3',['./' + 'tmp/' + filename,[]]);
           run.stdin.write(inputData + '\n');
           
           //TLE
