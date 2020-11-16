@@ -5,6 +5,10 @@ PNU_OpenSW_CCM_Site
 
 ## 요구사항
 
+ 1. 백엔드 실행
+ 2. Docker 실행
+ 3. 프론트엔드 실행
+
 - Node.js >= 14
 - react
 - react-bootstrap
