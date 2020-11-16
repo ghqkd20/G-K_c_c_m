@@ -1,5 +1,5 @@
 
-# 프로젝트 이름
+# 프로젝트 
 
 PNU_OpenSW_CCM_Site
 
