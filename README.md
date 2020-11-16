@@ -41,7 +41,7 @@ PNU_OpenSW_CCM_Site
 1. docker pull postgres
 2. docker run -d -p 5432:5432 --name pgsql -e POSTGRES_PASSWORD=postgres postgres
 
-- OnlineJudge compile server :
+- OnlineJudge compile server : (for_judge branch 참조 )
 1. docker pull ghqkd20/onlinejudge:0.1
 2. docker run -d -p 3000:3000 ghqkd20/onlinejudge:0.1
 * docker 환경설정 원할시  
